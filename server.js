@@ -16,6 +16,9 @@ app.get('/blog', function(req, res) {
 app.get('/gallery', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views/pages', 'gallery.html'));
 });
+app.get('/harta', function(req, res) {
+	res.sendFile(path.join(__dirname, 'views/pages', 'harta.html'));
+});
 
 
 var port = process.env.PORT || 3000;

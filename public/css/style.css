@@ -1682,3 +1682,6 @@ input[type="text"].greennature-payment-price-fill { display: inline-block;
 .greennature-image img {
 	width: 100%;
 }
+.readMore{
+	margin-top: 30px;
+}
