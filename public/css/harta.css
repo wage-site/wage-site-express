@@ -116,3 +116,7 @@ a:hover{
     background-color: #7e6442;
     opacity: 0.5;
 }
+.fa-frown{
+    font-size: 100px;
+    color: gray;
+}
