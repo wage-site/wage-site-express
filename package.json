@@ -30,6 +30,9 @@
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.2.0",
     "leaflet": "^1.7.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^4.4.0",
+    "mongoose": "^6.2.3",
     "nodemon": "^2.0.15"
   },
   "devDependencies": {

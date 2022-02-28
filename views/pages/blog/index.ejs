@@ -98,6 +98,11 @@
                                     <div class="section-container container">
                                         <div class="blog-item-wrapper">
                                             <div class="blog-item-holder">
+                                                
+                                                <% for (let blog of blogPosts){ %>
+                                                    <li><a href="/blog/<%= blog._id %>"><%= blog.title %></a></li>
+                                                    <%}%>
+                                                <!-- aici postarile -->
 
                                         <div class="clear"></div>
                                     </div>
@@ -139,7 +144,7 @@
                                     <h3 class="greennature-widget-title">Populare</h3>
                                     <div class="clear"></div>
                                     <div class="textwidget">Nu exista postari populare.</div>
-<!--                                     <div class="greennature-recent-port-widget">
+                                    <div class="greennature-recent-port-widget"> 
                                         <div class="recent-post-widget">
                                             <div class="recent-post-widget-thumbnail">
                                                 <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
@@ -287,26 +292,6 @@
         </footer>
     </div>
     <!-- body-wrapper -->
-
-    <script type='text/javascript' src='js/jquery/jquery.js'></script>
-    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
-
-    <script type='text/javascript' src='plugins/superfish/js/superfish.js'></script>
-    <script type='text/javascript' src='js/hoverIntent.min.js'></script>
-    <script type='text/javascript' src='plugins/dl-menu/modernizr.custom.js'></script>
-    <script type='text/javascript' src='plugins/dl-menu/jquery.dlmenu.js'></script>
-    <script type='text/javascript' src='plugins/jquery.easing.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/jquery.fancybox.pack.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/helpers/jquery.fancybox-media.js'></script>
-    <script type='text/javascript' src='plugins/fancybox/helpers/jquery.fancybox-thumbs.js'></script>
-    <script type='text/javascript' src='plugins/flexslider/jquery.flexslider.js'></script>
-    <script type='text/javascript' src='plugins/jquery.isotope.min.js'></script>
-    <script type='text/javascript' src='js/plugins.js'></script>
-    <script type='text/javascript' src='plugins/jquery.transit.min.js'></script>
-    <script type='text/javascript' src='plugins/gdlr-portfolio/gdlr-portfolio-script.js'></script>
-
-
-
 
 </body>
 </html>

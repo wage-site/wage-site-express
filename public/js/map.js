@@ -11,10 +11,22 @@ const sensor1 = document.createElement('div');
 
 new mapboxgl.Marker(sensor1).setLngLat([25.048867,45.286398]).addTo(map);
 
+sensor1.addEventListener('click', () => 
+   { 
+      openMenu(event,'Grui')
+   }
+); 
+
 const sensor2 = document.createElement('div');
     sensor2.className='marker';
 
 new mapboxgl.Marker(sensor2).setLngLat([25.052028,45.280628]).addTo(map);
+
+sensor2.addEventListener('click', () => 
+   { 
+      openMenu(event,'ApaS')
+   }
+); 
 
 const sensor3 = document.createElement('div');
     sensor3.className='marker';

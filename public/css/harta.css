@@ -4,6 +4,9 @@ body{
     padding: 0;
     height: 100%; 
     overflow: hidden;
+    width: 100%;
+    position: relative;
+    font-family: 'Mulish';
 }
 #map{
     position: absolute;
@@ -24,21 +27,22 @@ body{
 .nav-wrapper{
     position: absolute;
     z-index: 1;
-    width: 100%;
     height: 100%;
+    width: 7%;
+box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
 }
 
 .tab {
     float: left;
-    background-color: #2d2418;
-    width: 5%;
+    background-color: white;
+    width: 100%;
     height: 100%;
   }
   
   .tab button {
     display: block;
     background-color: inherit;
-    color: white;
+    color: #2d2418;
     padding: 22px 16px;
     width: 100%;
     border: none;
@@ -47,30 +51,35 @@ body{
     cursor: pointer;
     transition: 0.3s;
   }
+  .navA{
+    color: #2d2418;
+  }
   
   .tab button:hover {
-    background-color: #5dc269;
+    background-color: #f5f5f5;
     color: black;
   }
   
   .tab button.active {
-    background-color: #5dc269;
+    background-color: #f5f5f5;
     color: black;
   }
   
   .tabcontent {
-    float: left;
-    padding: 0px 12px;
+    position: absolute;
+    top: 0;
+    left: 100px;
     width: 25%;
+    padding: 0px 12px;
     border-left: none;
     height: 100%;
-    display: block;
-    background-color: #3f3221;
+    display: none;
+    background-color: white;
   }
 
   #Wagepedia{
-    width: 60%;
-    color: white;
+    width: 65%;
+    color: #3f3221;
     font-family: 'Mulish';
   }
 
@@ -87,17 +96,17 @@ body{
   }
 .scrollable{
     height: 100%;
-    background-color: #584730;
+    background-color: #f5f5f5;
     margin-left: 0.3%;
     overflow-y: scroll;
 }
 a{
-    color: white;
+    color: #3f3221;
     text-decoration: none;
 }
 a:hover{
-    background-color: #665338;
-    color: white;
+    background-color: #e5e4e2;
+    color: #3f3221;
     text-decoration: none;
 }
 ::-webkit-scrollbar {
@@ -107,16 +116,61 @@ a:hover{
     background-color: transparent;
 }
 ::-webkit-scrollbar-thumb {
-    background-color: #745d3e;
+    background: rgba(0, 0, 0, 0.2);
     border-radius: 20px;
     border: 6px solid transparent;
     background-clip: content-box;
+
 }
-::-webkit-scrollbar-thumb:hover {
-    background-color: #7e6442;
-    opacity: 0.5;
+
+.wip{
+  position: absolute;
+  top: 40px;
+  color: white;
 }
-.fa-frown{
-    font-size: 100px;
-    color: gray;
+
+.cardHeader{
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.time{
+  margin-left: 10px;
+  font-family: 'Mulish', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgb(41, 50, 61);
+  -webkit-text-size-adjust: 100%;
+}
+
+.source{
+  margin-left: 10px;
+  font-size: 70%;
+}
+
+.source a{
+  font-size: 100%;
+  text-decoration: underline;
+  line-height: 1.5;
+}
+
+.title{
+  margin-left: 10px;
+  font-family: 'Mulish';
+  font-size: 95%;
+  line-height: 1.5;
+}
+.bubble{
+  border-radius: 50%;
+  border: 2px solid rgb(107, 201, 38);
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.big{
+  font-size: 35px;
+  line-height: 20px;
 }
