@@ -37,10 +37,10 @@ app.get('/harta', function(req, res) {
 
 app.get('/blog', async(req, res) => {
 	const blogPosts = await Blog.find({});
-	res.render('pages/blog/index', {blogPosts});
+	res.render('blog/index', {blogPosts});
 });
 app.get('/blog/new', (req,res) =>{
-	res.render('pages/blog/new');
+	res.render('blog/new');
 });
 
 app.post('/blog', async(req,res) =>{
@@ -51,12 +51,12 @@ app.post('/blog', async(req,res) =>{
 
 app.get('/blog/:id', async(req,res) =>{
 	const blogID = await Blog.findById(req.params.id)
-	res.render('pages/blog/show', {blogID});
+	res.render('blog/show', {blogID});
 });
 
 app.get('/blog/:id/edit', async(req,res) =>{
 	const blogID = await Blog.findById(req.params.id)
-	res.render('pages/blog/edit', {blogID});
+	res.render('blog/edit', {blogID});
 });
 
 app.put('/blog/:id',async(req,res) =>{
