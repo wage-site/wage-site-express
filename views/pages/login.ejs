@@ -82,7 +82,7 @@
         <div class="greennature-page-title-wrapper header-style-5-title-wrapper">
             <div class="greennature-page-title-overlay"></div>
             <div class="greennature-page-title-container container">
-                <h1 class="greennature-page-title">Adauga postare noua!</h1>
+                <h1 class="greennature-page-title">Autentificare</h1>
                 <span class="greennature-page-caption">W.A.G.E. NEWS</span>
             </div>
         </div>
@@ -91,31 +91,19 @@
             <div class="greennature-content formDiv">
 
 
-                <form action="/blog" method="POST">
+                <form action="/dummy" method="POST">
                     <div class="imgcontainer">
                       <img src="../../images/wagecn.png" alt="Avatar" class="avatar">
+                      <h1>Bun venit!</h1>
                     </div>
                   
                     <div class="container">
-                      <label for="Title"><b>Titlul postarii</b></label>
-                      <input type="text" id="title" name="blog[title]" required>
+                      <label for="username"><b>Nume</b></label>
+                      <input type="text" id="username" name="username" required>
 
-                      <label for="Author"><b>Autorul postarii</b></label>
-                      <input type="text" id="author" name="blog[author]" required>
-
-                      <label for="Category"><b>Categoria</b></label>
-                      <input type="text" id="category" name="blog[category]" required>
-
-                      <label for="Date"><b>Data</b></label>
-                      <input type="text" id="date" name="blog[date]" required maxlength="6">
-
-                      <label for="Preview"><b>Scurta descriere</b></label>
-                      <textarea  id="description" name="blog[preview]" required maxlength="150"></textarea>
-                  
-                      <label for="description"><b>Descriere</b></label>
-                      <textarea  id="description" name="blog[description]" required></textarea>
-                          
-                      <button>Adauga postarea</button>
+                      <label for="password"><b>Parola</b></label>
+                      <input type="password" id="password" name="password" required>       
+                      <button>Intra in cont</button>
                     </div>
             </div>
             <!-- greennature-content -->

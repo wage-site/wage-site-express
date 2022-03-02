@@ -1,8 +1,14 @@
 const mongoose = require('mongoose');
 const express = require('express');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const path = require('path');
 const Blog = require('./models/blog');
+const blogRoute = require('./routes/blogRoute');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
+
 
 mongoose.connect('mongodb://127.0.0.1:27017/wageTeam',{
 	useNewUrlParser: true,
@@ -23,6 +29,25 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+const sessionConfig = {
+	secret:'addsecret',
+	resave:false,
+	saveUninitialized:true,
+	cookie:{
+		httpOnly:true,
+		expires:Date.now() + 1000 * 60 * 60 * 24 * 7,
+		maxAge:  1000 * 60 * 60 * 24 * 7
+	}
+}
+app.use(session(sessionConfig));
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser);
+passport.deserializeUser(User.deserializeUser);
 
 app.get('/', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views/pages', 'index.html'));
@@ -35,44 +60,24 @@ app.get('/harta', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views/pages', 'harta.html'));
 });
 
-app.get('/blog', async(req, res) => {
-	const blogPosts = await Blog.find({});
-	res.render('blog/index', {blogPosts});
-});
-app.get('/blog/new', (req,res) =>{
-	res.render('blog/new');
-});
+//Creeaza conturi noi!
 
-app.post('/blog', async(req,res) =>{
-	const blogNew = new Blog(req.body.blog);
-	await blogNew.save();
-	res.redirect(`/blog/${blogNew._id}`)
-});
-
-app.get('/blog/:id', async(req,res) =>{
-	const blogID = await Blog.findById(req.params.id)
-	res.render('blog/show', {blogID});
-});
-
-app.get('/blog/:id/edit', async(req,res) =>{
-	const blogID = await Blog.findById(req.params.id)
-	res.render('blog/edit', {blogID});
-});
-
-app.put('/blog/:id',async(req,res) =>{
-	const {id} = req.params;
-	const blogEdited = await Blog.findByIdAndUpdate(id,{...req.body.blog});
-	res.redirect(`/blog/${blogEdited._id}`)
-});
-
-app.delete('/blog/:id', async(req,res) =>{
-	const { id } = req.params;
-	await Blog.findByIdAndDelete(id);
+ app.get('/register', async(req,res) =>{
+	const user = new User({email:'reporter1@wage.com', username:'reporter'});
+	const newUser = await User.register(user, 'newwage22');
+	console.log(newUser);
 	res.redirect('/blog');
+}); 
+
+app.get('/dummy', (req,res) =>{
+	res.render('pages/login')
 });
 
+app.post('/dummy', passport.authenticate('local'),(req,res)=>{
+	res.redirect('/blog')
+});
 
-
+app.use('/blog', blogRoute)
 
 var port = process.env.PORT || 3000;
 app.listen(port)
