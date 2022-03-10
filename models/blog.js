@@ -3,6 +3,12 @@ const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
     title: String,
+    image:[
+        {
+            url:String,
+            filename:String
+        }
+    ],
     author: String,
     category: String,
     date: String,

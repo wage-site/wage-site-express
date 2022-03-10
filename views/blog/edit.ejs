@@ -63,6 +63,10 @@
                                 </li>
                                 <li class="menu-item menu-item-has-childrenmenu-item current-menu-item menu-item-has-children greennature-normal-menu"><a href="/blog" class="sf-with-ul-pre">Blog</a>
                                 </li>
+                                <% if(currentUser){ %>
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="logout" class="sf-with-ul-pre">Logout</a>
+                                    </li>
+                               <% } %>
                             </ul>
                             <!-- <a class="greennature-donate-button greennature-lb-payment"><span class="greennature-button-overlay"></span><span class="greennature-button-donate-text">Donate</span></a> -->
                         </nav>

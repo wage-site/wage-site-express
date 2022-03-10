@@ -82,7 +82,7 @@
         <div class="greennature-page-title-wrapper header-style-5-title-wrapper">
             <div class="greennature-page-title-overlay"></div>
             <div class="greennature-page-title-container container">
-                <h1 class="greennature-page-title">Autentificare</h1>
+                <h1 class="greennature-page-title">Register</h1>
                 <span class="greennature-page-caption">W.A.G.E. NEWS</span>
             </div>
         </div>
@@ -91,15 +91,18 @@
             <div class="greennature-content formDiv">
 
 
-                <form action="/dummy" method="POST">
+                <form action="/reg" method="POST">
                     <div class="imgcontainer">
                       <img src="../../images/wagecn.png" alt="Avatar" class="avatar">
-                      <h1>Bun venit, administrator!</h1>
+                      <h1>Bun venit!</h1>
                     </div>
                   
                     <div class="container">
                       <label for="username"><b>Nume</b></label>
                       <input type="text" id="username" name="username" required>
+
+                      <label for="email"><b>Email</b></label>
+                      <input type="email" id="email" name="email" required>
 
                       <label for="password"><b>Parola</b></label>
                       <input type="password" id="password" name="password" required>       

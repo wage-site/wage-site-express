@@ -65,6 +65,10 @@
                                 </li>
                                 <li class="menu-item menu-item-has-childrenmenu-item current-menu-item menu-item-has-children greennature-normal-menu"><a href="/blog" class="sf-with-ul-pre">Blog</a>
                                 </li>
+                                <% if(currentUser){ %>
+                                    <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-normal-menu"><a href="logout" class="sf-with-ul-pre">Logout</a>
+                                    </li>
+                               <% } %>
                             </ul>
                             <!-- <a class="greennature-donate-button greennature-lb-payment"><span class="greennature-button-overlay"></span><span class="greennature-button-donate-text">Donate</span></a> -->
                         </nav>
@@ -91,7 +95,7 @@
             <div class="greennature-content formDiv">
 
 
-                <form action="/blog" method="POST">
+                <form action="/blog" method="POST" enctype="multipart/form-data">
                     <div class="imgcontainer">
                       <img src="../../images/wagecn.png" alt="Avatar" class="avatar">
                     </div>
@@ -112,8 +116,12 @@
                       <label for="Preview"><b>Scurta descriere</b></label>
                       <textarea  id="description" name="blog[preview]" required maxlength="150"></textarea>
                   
-                      <label for="description"><b>Descriere</b></label>
+                      <label for="description"><b>Descriere si imagini</b></label>
                       <textarea  id="description" name="blog[description]" required></textarea>
+
+                      <div class="input-group mb-3">
+                        <input type="file" class="form-control" name="image" id="image" multiple>
+                    </div>
                           
                       <button>Adauga postarea</button>
                     </div>
