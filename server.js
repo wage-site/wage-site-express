@@ -123,7 +123,11 @@ app.use((req,res,next) =>{
 
 app.get('/', async(req, res) =>{
     const blogPosts = await Blog.find({});
-	res.render('pages/index',{blogPosts})
+    let templatePosts = [];
+    blogPosts.forEach((post) => {
+        templatePosts.push(post.toObject())
+    });
+	res.render('pages/index',{blogPosts: [...templatePosts]})
 });
 
 app.get('/gallery', function(req, res) {

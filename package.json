@@ -1,30 +1,17 @@
 {
-  "name": "node-leaflet-express-ejs",
+  "name": "wage-site",
   "version": "1.0.0",
-  "description": "leaflet map served by an express server using ejs templating engine",
+  "description": "express website",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "tailwind:css": "postcss public/css/tailwind.css -o public/css/tailwindStyle.css"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tsamaya/node-leaflet-express-ejs.git"
-  },
-  "keywords": [
-    "node",
-    "leaflet",
-    "express",
-    "template",
-    "ejs"
-  ],
   "author": "Arnaud Ferrand",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tsamaya/node-leaflet-express-ejs/issues"
-  },
-  "homepage": "https://github.com/tsamaya/node-leaflet-express-ejs#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.2",
     "chart.js": "^2.9.4",
     "cloudinary": "^1.28.1",
     "dotenv": "^16.0.0",
@@ -44,7 +31,10 @@
     "nodemon": "^2.0.15",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0"
+    "passport-local-mongoose": "^6.1.0",
+    "postcss": "^8.4.8",
+    "postcss-cli": "^9.1.0",
+    "tailwindcss": "^3.0.23"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

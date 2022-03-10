@@ -342,14 +342,14 @@
                                             <div class="clear"></div>
                                             <!-- <div class="textwidget" style="margin-left: 10px;">Noutatile vor aparea aici</div>-->
                                             
-                                                <% for(let blog of blogPosts) {%>
+                                                <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 3; i--) {%>
                                                     <div class="twelve columns">
                                                         <div class="greennature-item greennature-blog-widget">
                                                             <div class="greennature-ux greennature-blog-widget-ux">
                                                                 <article id="post-852" class="post-852 post type-post status-publish format-standard has-post-thumbnail hentry category-fit-row tag-blog tag-life-style">
                                                                     <div class="greennature-standard-style">
                                                                         <div class="greennature-blog-thumbnail">
-                                                                            <a href="/blog/<%= blog._id %>"> <img src="<%= blog.image[0].url %> " alt="" width="400" height="400" /></a>
+                                                                            <a href="/blog/<%= blogPosts[i]._id %>"> <img src="<%= blogPosts[i].image[0].url %> " alt="" width="400" height="400" /></a>
                                                                         </div>
         
                                                                         <div class="greennature-blog-date-wrapper">
@@ -358,15 +358,15 @@
                                                                         </div>
         
                                                                         <header class="post-header">
-                                                                            <h3 class="greennature-blog-title"><a href="/blog/<%= blog._id %>"><%= blog.title %> </a></h3>
+                                                                            <h3 class="greennature-blog-title"><a href="/blog/<%= blogPosts[i]._id %>"><%= blogPosts[i].title %> </a></h3>
         
                                                                             <div class="greennature-blog-info">
-                                                                                <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="/blog/<%= blog._id %>" title="Posts by John Maxwell" rel="author"><%= blog.author %> </a></div>
+                                                                                <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="/blog/<%= blogPosts[i]._id %>" title="Posts by John Maxwell" rel="author"><%= blogPosts[i].author %> </a></div>
                                                                                 <div class="clear"></div>
                                                                             </div>
                                                                             <div class="clear"></div>
                                                                         </header>
-                                                                        
+                                                                    
                                                                         <div class="clear"></div>
                                                                     </div>
                                                                 </article>
@@ -537,43 +537,43 @@
             var masterslider_d1da = new MasterSlider();
 
             // slider controls
-			masterslider_d1da.control('arrows'     ,{ autohide:true, overVideo:true  });
-			masterslider_d1da.control('bullets'    ,{ autohide:false, overVideo:true, dir:'h', align:'bottom', space:6 , margin:25  });
+            masterslider_d1da.control('arrows'     ,{ autohide:true, overVideo:true  });
+            masterslider_d1da.control('bullets'    ,{ autohide:false, overVideo:true, dir:'h', align:'bottom', space:6 , margin:25  });
             // slider setup
             masterslider_d1da.setup("slider_1", {
-				width           : 1140,
-				height          : 800,
-				minHeight       : 0,
-				space           : 0,
-				start           : 1,
-				grabCursor      : false,
-				swipe           : true,
-				mouse           : false,
-				keyboard        : true,
-				layout          : "fullwidth",
-				wheel           : false,
-				autoplay        : false,
+                width           : 1140,
+                height          : 800,
+                minHeight       : 0,
+                space           : 0,
+                start           : 1,
+                grabCursor      : false,
+                swipe           : true,
+                mouse           : false,
+                keyboard        : true,
+                layout          : "fullwidth",
+                wheel           : false,
+                autoplay        : false,
                 instantStartLayers:false,
-				mobileBGVideo:false,
-				loop            : true,
-				shuffle         : false,
-				preload         : 0,
-				heightLimit     : true,
-				autoHeight      : false,
-				smoothHeight    : true,
-				endPause        : false,
-				overPause       : true,
-				fillMode        : "fill",
-				centerControls  : true,
-				startOnAppear   : false,
-				layersMode      : "center",
-				autofillTarget  : "",
-				hideLayers      : false,
-				fullscreenMargin: 0,
-				speed           : 20,
-				dir             : "h",
-				parallaxMode    : 'swipe',
-				view            : "basic"
+                mobileBGVideo:false,
+                loop            : true,
+                shuffle         : false,
+                preload         : 0,
+                heightLimit     : true,
+                autoHeight      : false,
+                smoothHeight    : true,
+                endPause        : false,
+                overPause       : true,
+                fillMode        : "fill",
+                centerControls  : true,
+                startOnAppear   : false,
+                layersMode      : "center",
+                autofillTarget  : "",
+                hideLayers      : false,
+                fullscreenMargin: 0,
+                speed           : 20,
+                dir             : "h",
+                parallaxMode    : 'swipe',
+                view            : "basic"
             });
             
 
