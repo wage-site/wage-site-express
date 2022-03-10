@@ -332,7 +332,7 @@
                                     <div class="greennature-item-title-wrapper greennature-item  greennature-left-divider greennature-small ">
                                         <div class="greennature-item-title-container container">
                                             <div class="greennature-item-title-head">
-                                                <h3 class="greennature-item-title greennature-skin-title greennature-skin-border">Noutati</h3><a class="greennature-item-title-link" href="#">Mai multe</a>
+                                                <h3 class="greennature-item-title greennature-skin-title greennature-skin-border">Noutati</h3><a class="greennature-item-title-link" href="/blog">Mai multe</a>
                                                 <div class="clear"></div>
                                             </div>
                                         </div>
@@ -340,102 +340,42 @@
                                     <div class="blog-item-wrapper">
                                         <div class="blog-item-holder">
                                             <div class="clear"></div>
-                                            <div class="textwidget" style="margin-left: 10px;">Noutatile vor aparea aici</div>
-<!--                                             <div class="twelve columns">
-                                                <div class="greennature-item greennature-blog-widget">
-                                                    <div class="greennature-ux greennature-blog-widget-ux">
-                                                        <article id="post-852" class="post-852 post type-post status-publish format-standard has-post-thumbnail hentry category-fit-row tag-blog tag-life-style">
-                                                            <div class="greennature-standard-style">
-                                                                <div class="greennature-blog-thumbnail">
-                                                                    <a href="#"> <img src="upload/shutterstock_170752253-400x400.jpg" alt="" width="400" height="400" /></a>
-                                                                </div>
-
-                                                                <div class="greennature-blog-date-wrapper">
-                                                                    <div class="greennature-blog-day">11</div>
-                                                                    <div class="greennature-blog-month">Dec</div>
-                                                                </div>
-
-                                                                <header class="post-header">
-                                                                    <h3 class="greennature-blog-title"><a href="#">Donec luctus imperdiet</a></h3>
-
-                                                                    <div class="greennature-blog-info">
-                                                                        <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="#" title="Posts by John Maxwell" rel="author">W.A.G.E Team</a></div>
+                                            <!-- <div class="textwidget" style="margin-left: 10px;">Noutatile vor aparea aici</div>-->
+                                            
+                                                <% for(let blog of blogPosts) {%>
+                                                    <div class="twelve columns">
+                                                        <div class="greennature-item greennature-blog-widget">
+                                                            <div class="greennature-ux greennature-blog-widget-ux">
+                                                                <article id="post-852" class="post-852 post type-post status-publish format-standard has-post-thumbnail hentry category-fit-row tag-blog tag-life-style">
+                                                                    <div class="greennature-standard-style">
+                                                                        <div class="greennature-blog-thumbnail">
+                                                                            <a href="/blog/<%= blog._id %>"> <img src="<%= blog.image[0].url %> " alt="" width="400" height="400" /></a>
+                                                                        </div>
+        
+                                                                        <div class="greennature-blog-date-wrapper">
+                                                                            <div class="greennature-blog-day">11</div>
+                                                                            <div class="greennature-blog-month">Dec</div>
+                                                                        </div>
+        
+                                                                        <header class="post-header">
+                                                                            <h3 class="greennature-blog-title"><a href="/blog/<%= blog._id %>"><%= blog.title %> </a></h3>
+        
+                                                                            <div class="greennature-blog-info">
+                                                                                <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="/blog/<%= blog._id %>" title="Posts by John Maxwell" rel="author"><%= blog.author %> </a></div>
+                                                                                <div class="clear"></div>
+                                                                            </div>
+                                                                            <div class="clear"></div>
+                                                                        </header>
+                                                                        
                                                                         <div class="clear"></div>
                                                                     </div>
-                                                                    <div class="clear"></div>
-                                                                </header>
+                                                                </article>
                                                                 
-                                                                <div class="clear"></div>
                                                             </div>
-                                                        </article>
-                                                        
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                            <div class="twelve columns">
-                                                <div class="greennature-item greennature-blog-widget">
-                                                    <div class="greennature-ux greennature-blog-widget-ux">
-                                                        <article id="post-862" class="post-862 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-blog tag-link tag-news">
-                                                            <div class="greennature-standard-style">
-                                                                <div class="greennature-blog-thumbnail">
-                                                                    <a href="#"> <img src="upload/shutterstock_49617541-400x400.jpg" alt="" width="400" height="400" /></a>
-                                                                </div>
-
-                                                                <div class="greennature-blog-date-wrapper">
-                                                                    <div class="greennature-blog-day">09</div>
-                                                                    <div class="greennature-blog-month">Dec</div>
-                                                                </div>
-
-                                                                <header class="post-header">
-                                                                    <h3 class="greennature-blog-title"><a href="#">Magna pars studiorum</a></h3>
-
-                                                                    <div class="greennature-blog-info">
-                                                                        <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="#" title="Posts by John Maxwell" rel="author">John Maxwell</a></div>
-                                                                        <div class="clear"></div>
-                                                                    </div>
-                                                                    <div class="clear"></div>
-                                                                </header>
-                                                               
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </article>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                            <div class="twelve columns">
-                                                <div class="greennature-item greennature-blog-widget">
-                                                    <div class="greennature-ux greennature-blog-widget-ux">
-                                                        <article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row tag-blog tag-life-stlyle">
-                                                            <div class="greennature-standard-style">
-                                                                <div class="greennature-blog-thumbnail">
-                                                                    <a href="#"> <img src="upload/shutterstock_70658833-400x400.jpg" alt="" width="400" height="400" /></a>
-                                                                </div>
-
-                                                                <div class="greennature-blog-date-wrapper">
-                                                                    <div class="greennature-blog-day">04</div>
-                                                                    <div class="greennature-blog-month">Dec</div>
-                                                                </div>
-
-                                                                <header class="post-header">
-                                                                    <h3 class="greennature-blog-title"><a href="#">Sedial eiusmod tempor</a></h3>
-
-                                                                    <div class="greennature-blog-info">
-                                                                        <div class="blog-info blog-author greennature-skin-info"><i class="fa fa-pencil"></i><a href="#" title="Posts by John Maxwell" rel="author">John Maxwell</a></div>
-                                                                        <div class="clear"></div>
-                                                                    </div>
-                                                                    <div class="clear"></div>
-                                                                </header>
-                                                                
-                                                                <div class="clear"></div>
-                                                            </div>
-                                                        </article>
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div> -->
+                                                    <div class="clear"></div>
+                                                <% } %> 
                                         </div>
                                     </div>
                                 </div>

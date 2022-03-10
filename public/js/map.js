@@ -86,6 +86,11 @@ new mapboxgl.Marker(sensor13).setLngLat([25.010714,45.221211]).addTo(map);
 
 
                         /* sidetabs function */
+document.getElementById("button1").addEventListener('click', () => 
+{ 
+   openMenu(event,'Wagepedia');
+}
+); 
 
 function openMenu(evt, itemName) {
     var i, tabcontent, tablinks;

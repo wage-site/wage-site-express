@@ -5,7 +5,6 @@ const methodOverride = require('method-override')
 const {isLoggedIn} = require('../loggedInMiddleware');
 const multer = require('multer');
 const {storage} = require('../cloudinary/cldindex');
-const blog = require('../models/blog');
 const upload = multer({ storage });
 
 router.get('/', async(req, res) => {

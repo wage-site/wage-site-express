@@ -41,7 +41,9 @@ const scriptSrcUrls = [
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net/",
-    "https://res.cloudinary.com/dwshqh6op/"
+    "https://res.cloudinary.com/dwshqh6op/",
+    "https://ajax.googleapis.com/",
+    "https://ajax.googleapis.com/ajax"
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
@@ -58,7 +60,8 @@ const connectSrcUrls = [
     "https://*.tiles.mapbox.com",
     "https://api.mapbox.com",
     "https://events.mapbox.com",
-    "https://res.cloudinary.com/dwshqh6op/"
+    "https://res.cloudinary.com/dwshqh6op/",
+    "https://data.uradmonitor.com/"
 ];
 const fontSrcUrls = [ 
     "https://fonts.googleapis.com/",
@@ -118,8 +121,9 @@ app.use((req,res,next) =>{
 	next();
 });
 
-app.get('/', function(req, res) {
-	res.sendFile(path.join(__dirname, 'views/pages', 'index.html'));
+app.get('/', async(req, res) =>{
+    const blogPosts = await Blog.find({});
+	res.render('pages/index',{blogPosts})
 });
 
 app.get('/gallery', function(req, res) {
