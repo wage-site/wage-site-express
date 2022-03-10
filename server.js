@@ -51,7 +51,8 @@ const styleSrcUrls = [
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net/",
-    "https://res.cloudinary.com/dwshqh6op/"
+    "https://res.cloudinary.com/dwshqh6op/",
+    "https://cdnjs.cloudflare.com/"
 ];
 const connectSrcUrls = [
     "https://*.tiles.mapbox.com",
@@ -59,31 +60,31 @@ const connectSrcUrls = [
     "https://events.mapbox.com",
     "https://res.cloudinary.com/dwshqh6op/"
 ];
-const fontSrcUrls = [ "https://res.cloudinary.com/dwshqh6op/" ];
+const fontSrcUrls = [ 
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com/",
+    "https://cdnjs.cloudflare.com/"
+
+];
  
 app.use(
-    helmet({
-        contentSecurityPolicy: {
-            directives : {
-                defaultSrc : [],
-                connectSrc : [ "'self'", ...connectSrcUrls ],
-                scriptSrc  : [ "'unsafe-inline'", "'self'", ...scriptSrcUrls ],
-                styleSrc   : [ "'self'", "'unsafe-inline'", ...styleSrcUrls ],
-                workerSrc  : [ "'self'", "blob:" ],
-                objectSrc  : [],
-                imgSrc     : [
-                    "'self'",
-                    "blob:",
-                    "data:",
-                    "https://res.cloudinary.com/dwshqh6op/",
-                    "https://images.unsplash.com/"
-                ],
-                fontSrc    : [ "'self'", ...fontSrcUrls ],
-                mediaSrc   : [ "https://res.cloudinary.com/dwshqh6op/" ],
-                childSrc   : [ "blob:" ]
-            }
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                `https://res.cloudinary.com/${process.env.CLOUD_NAME}/`, 
+                "https://images.unsplash.com/",
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls],
         },
-        crossOriginEmbedderPolicy: false
     })
 );
 

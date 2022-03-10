@@ -38,7 +38,7 @@
 </head>
 
 <body data-rsssl=1 class="home page-template-default page page-id-5680 _masterslider _msp_version_3.2.7 woocommerce-no-js">
-    <div class="body-wrapper  float-menu" data-home="https://demo.goodlayers.com/greennature/">
+    <div class="body-wrapper  float-menu">
         <header class="greennature-header-wrapper header-style-5-wrapper greennature-header-with-top-bar">
             <div id="greennature-header-substitute"></div>
             <div class="greennature-header-inner header-inner-header-style-5">
@@ -47,7 +47,7 @@
                     <!-- logo -->
                     <div class="greennature-logo">
                         <div class="greennature-logo-inner">
-                            <a href="index-2.html">
+                            <a href="/">
                                 <img src="images/brand1.png" alt="" /> </a>
                         </div>
                     </div>
@@ -193,7 +193,7 @@
                                     <div class="greennature-recent-port-widget"> 
                                         <div class="recent-post-widget">
                                             <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
+                                                <a href="#"><img src="../../upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
                                             </div>
                                             <div class="recent-post-widget-content">
                                                 <div class="recent-post-widget-title"><a href="#">Wind Energy</a></div>
@@ -206,7 +206,7 @@
                                         </div>
                                         <div class="recent-post-widget">
                                             <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
+                                                <a href="#"><img src="../../upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
                                             </div>
                                             <div class="recent-post-widget-content">
                                                 <div class="recent-post-widget-title"><a href="#">Elephant Sanctuary</a></div>
@@ -219,7 +219,7 @@
                                         </div>
                                         <div class="recent-post-widget">
                                             <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
+                                                <a href="#"><img src="../../upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
                                             </div>
                                             <div class="recent-post-widget-content">
                                                 <div class="recent-post-widget-title"><a href="#">Conservation Volunteer</a></div>
@@ -278,7 +278,7 @@
                         <div class="greennature-recent-post-widget">
                             <div class="recent-post-widget">
                                 <div class="recent-post-widget-thumbnail">
-                                    <a href="#"><img src="upload/shutterstock_294481373-150x150.jpg" alt="" width="150" height="150" /></a>
+                                    <a href="#"><img src="" alt="" width="150" height="150" /></a>
                                 </div>
                                 <div class="recent-post-widget-content">
                                     <div class="recent-post-widget-title"><a href="#">Sem Porta Mollis Parturi</a></div>
@@ -291,7 +291,7 @@
                             </div>
                             <div class="recent-post-widget">
                                 <div class="recent-post-widget-thumbnail">
-                                    <a href="#"><img src="upload/shutterstock_181393724-150x150.jpg" alt="" width="150" height="150" /></a>
+                                    <a href="#"><img src="" alt="" width="150" height="150" /></a>
                                 </div>
                                 <div class="recent-post-widget-content">
                                     <div class="recent-post-widget-title"><a href="#">Nullam Lorem Mattis Purus</a></div>
@@ -311,24 +311,11 @@
                         <h3 class="greennature-widget-title">Galerie</h3>
                         <div class="clear"></div>
                         <div class="greennature-recent-port2-widget">
+                            <% for (let blog of blogPosts){ %>
                             <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
+                                <a href="#"><img src="<%= blog.image[0].url %>" alt="" width="150" height="150" /></a>
                             </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_124871620-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_281995004-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_256181956-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
+                            <% } %> 
                             <div class="clear"></div>
                         </div>
                     </div>
