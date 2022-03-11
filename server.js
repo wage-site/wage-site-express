@@ -130,8 +130,8 @@ app.get('/', async(req, res) =>{
 	res.render('pages/index',{blogPosts: [...templatePosts]})
 });
 
-app.get('/gallery', function(req, res) {
-	res.sendFile(path.join(__dirname, 'views/pages', 'gallery.html'));
+app.get('/colab', function(req, res) {
+	res.sendFile(path.join(__dirname, 'views/pages', 'colab.html'));
 });
 app.get('/harta', function(req, res) {
 	res.sendFile(path.join(__dirname, 'views/pages', 'harta.html'));
