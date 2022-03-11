@@ -16,7 +16,9 @@ const User = require('./models/user');
 const Sanitize = require('express-mongo-sanitize');
 const helmet = require('helmet')
 
-mongoose.connect('mongodb://127.0.0.1:27017/wageTeam',{
+let mongoUrl = `mongodb+srv://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@wagedb.vhhps.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+
+mongoose.connect(mongoUrl,{
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
@@ -43,7 +45,8 @@ const scriptSrcUrls = [
     "https://cdn.jsdelivr.net/",
     "https://res.cloudinary.com/dwshqh6op/",
     "https://ajax.googleapis.com/",
-    "https://ajax.googleapis.com/ajax"
+    "https://ajax.googleapis.com/ajax",
+    "https://unpkg.com/"
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
