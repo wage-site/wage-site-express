@@ -14,8 +14,6 @@
     integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css' rel='stylesheet' />
-
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="css/harta.css" rel="stylesheet">
   <script>
@@ -30,17 +28,26 @@
             fadeOut: {
               "0%": { opacity: 1 },
               "100%": { opacity: 0 }
+            },
+            slideIn: {
+              "0%": { transform: "translateY(100%)", opacity: 0 },
+              "100%": { transform: "translateX(0)", opacity: 1 }
+            },
+            slideOut: {
+              "100%": { transform: "translateY(100%)", opacity: 0 },
+              "0%": { transform: "translateX(0)", opacity: 1 }
             }
           },
           animation: {
             fadeIn: "fadeIn 200ms ease-in-out",
-            fadeOut: "fadeOut 200ms ease-in-out"
+            fadeOut: "fadeOut 200ms ease-in-out",
+            slideIn: "slideIn 1000ms cubic-bezier(0.645, 0.045, 0.355, 1.000)",
+            slideOut: "slideOut 1000ms cubic-bezier(0.645, 0.045, 0.355, 1.000)"
           }
         }
       }
     }
   </script>
-
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
   <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>  
   <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
@@ -51,10 +58,7 @@
 
 <body class="overflow-hidden">
   <div id="root"></div>
-
-  <script src="js/harta/hartaReact.js" type="text/babel""></script>
-  <!-- <script src="js/map.js"></script> -->
-  <!-- <script src="js/sensorAPI.js"></script> -->
+  <script src="js/harta/hartaReact.jsx" type="text/babel""></script>
 </body>
 
 </html>
