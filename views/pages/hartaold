@@ -1,4 +1,162 @@
-<!DOCTYPE html>
+
+
+
+var geojson = {
+   'type': 'FeatureCollection',
+   'features': [
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.048887, 45.286312]
+   },
+   'properties': {
+   'title': 'Grui',
+   'description': 'Senzor pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.020152,45.233619]
+   },
+   'properties': {
+   'title': 'Apa Sarata',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [ 25.013783,45.246982]
+   },
+   'properties': {
+   'title': 'Marcus',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.065912,45.299029]
+   },
+   'properties': {
+   'title': 'Aro',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.061631,45.279675]
+   },
+   'properties': {
+   'title': 'visoi3',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.056184,45.278482]
+   },
+   'properties': {
+   'title': 'visoi2',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.040256,45.264680]
+   },
+   'properties': {
+   'title': 'Dinicu',
+   'description': 'Senzor pm'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.052132,45.280552]
+   },
+   'properties': {
+   'title': 'Schei',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.048769,45.274771]
+   },
+   'properties': {
+   'title': 'Centru II',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.043540,45.272337]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.049944,45.268803]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.039517,45.265359]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.011053,45.221642]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+   ]
+   };<!DOCTYPE html>
 <html>
 
 <head>
@@ -282,3 +440,161 @@ q
 </body>
 
 </html>
+
+
+var geojson = {
+   'type': 'FeatureCollection',
+   'features': [
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.048887, 45.286312]
+   },
+   'properties': {
+   'title': 'Grui',
+   'description': 'Senzor pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.020152,45.233619]
+   },
+   'properties': {
+   'title': 'Apa Sarata',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [ 25.013783,45.246982]
+   },
+   'properties': {
+   'title': 'Marcus',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.065912,45.299029]
+   },
+   'properties': {
+   'title': 'Aro',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.061631,45.279675]
+   },
+   'properties': {
+   'title': 'visoi3',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.056184,45.278482]
+   },
+   'properties': {
+   'title': 'visoi2',
+   'description': 'Senzor pm'
+   }
+   },
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.040256,45.264680]
+   },
+   'properties': {
+   'title': 'Dinicu',
+   'description': 'Senzor pm'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.052132,45.280552]
+   },
+   'properties': {
+   'title': 'Schei',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.048769,45.274771]
+   },
+   'properties': {
+   'title': 'Centru II',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.043540,45.272337]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.049944,45.268803]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.039517,45.265359]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+
+   {
+   'type': 'Feature',
+   'geometry': {
+   'type': 'Point',
+   'coordinates': [25.011053,45.221642]
+   },
+   'properties': {
+   'title': 'Centru I',
+   'description': 'Senzor Pm 2.5'
+   }
+   },
+   ]
+   };

@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.marker {
+  background-image: url("../images/wagecn.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+}
+#map-background,
+#map-container,
+#map-overlay,
+#content {
+  width: 100%;
+  min-height: 100%;
+  position: absolute;
+}
+#map-background {
+  z-index: -1;
+}
+#map-container {
+  z-index: 0;
+}
+#map-overlay {
+  z-index: 1;
+  background: none;
+}
+#content {
+  z-index: 0;
+}

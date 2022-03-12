@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js",
-    "tailwind:css": "postcss public/css/tailwind.css -o public/css/tailwindStyle.css"
+    "tailwind:css": "postcss public/css/tailwind.css -o public/css/harta.css"
   },
   "author": "Arnaud Ferrand",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "cloudinary": "^1.28.1",
     "dotenv": "^16.0.0",
     "ejs": "^2.7.4",
+    "ejs-lint": "^1.2.1",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.2.0",
     "express-mongo-sanitize": "^2.2.0",
