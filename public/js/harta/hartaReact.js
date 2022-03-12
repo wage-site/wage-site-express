@@ -1,6 +1,49 @@
 let { useState, useEffect, useRef, Fragment } = React;
+
 mapboxgl.accessToken =
   "pk.eyJ1IjoiZWR5Z3V5IiwiYSI6ImNrbDNoZzB0ZjA0anoydm13ejJ2ZnI1bTUifQ.IAGnqkUNAZULY6QbYCSS7w";
+
+var userid = "7137";
+var userkey = "a8e0ed5e1cf288124d1b84cd0c994958";
+
+function getUnit(sensor) {
+  switch (sensor) {
+    case "temperature":
+      return "°C";
+    case "cpm":
+      return "CPM";
+    case "voltage":
+      return "Volts";
+    case "duty":
+      return "‰";
+    case "pressure":
+      return "Pa";
+    case "humidity":
+      return "% RH";
+    case "gas1":
+      return "ppm";
+    case "gas2":
+      return "ppm";
+    case "gas3":
+      return "ppm";
+    case "gas4":
+      return "ppm";
+    case "dust":
+      return "mg/m³";
+    case "co2":
+      return "ppm";
+    case "ch2o":
+      return "ppm";
+    case "pm25":
+      return "µg/m³";
+    case "pm10":
+      return "µg/m³";
+    case "noise":
+      return "dBA";
+    case "voc":
+      return "voc";
+  }
+}
 
 function useWindowSize() {
   const [windowSize, setWindowSize] = useState({
@@ -75,6 +118,20 @@ function Harta() {
       )
         .setLngLat(sensor.coords)
         .addTo(map.current);
+    });
+  });
+
+  useEffect(() => {
+    axios({
+      method: "GET",
+      url: `https://data.uradmonitor.com/api/v1/devices/userid/${userid}`,
+      responseType: "json",
+    }).then((data) => {
+      if (Object.keys(data)[0] == "error") {
+        console.error("Error occured!");
+      } else {
+        console.log(data.data);
+      }
     });
   });
 
