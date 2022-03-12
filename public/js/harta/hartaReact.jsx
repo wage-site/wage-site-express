@@ -96,7 +96,6 @@ function Harta() {
       center: [25.045456, 45.268469],
       zoom: 12,
     });
-    map.current.addControl(new mapboxgl.NavigationControl());
     axios({
       method: "GET",
       url: `https://data.uradmonitor.com/api/v1/devices/userid/${userid}`,
@@ -154,8 +153,17 @@ function Harta() {
     } else {
       setLoading(true);
       let sensorId;
+      let sensorCoords;
       sensors.map((sensor) => {
-        if (sensor.name == selectedMenu) sensorId = sensor.id;
+        if (sensor.name == selectedMenu) {
+          sensorId = sensor.id;
+          sensorCoords = sensor.coords;
+        }
+      });
+      map.current.easeTo({
+        center: sensorCoords,
+        zoom: 16,
+        duration: 1000,
       });
       axios({
         method: "GET",
@@ -175,14 +183,20 @@ function Harta() {
           longitude,
           pressure,
           time,
-          voltage1,
+          timelocal,
           pm1,
           pm10,
           pm25,
         } = data.data[data.data.length - 1];
+        console.log(data.data[data.data.length - 1]);
+        let date = new Date(time * 1000);
+        var hours = date.getHours();
+        var minutes = "0" + date.getMinutes();
+        var seconds = "0" + date.getSeconds();
+        var formattedTime = hours + ":" + minutes.substr(-2);
         setMenuData({
           name: selectedMenu,
-          gas1: gas1 ? gas1 : null,
+          gas1: gas1,
           humidity: humidity ? humidity : null,
           temperature: temperature
             ? parseInt(temperature.toString().substring(0, 4))
@@ -191,10 +205,11 @@ function Harta() {
           longitude: longitude ? longitude : null,
           pressure: pressure ? pressure : null,
           time: time ? time : null,
-          voltage1: voltage1 ? voltage1 : null,
+          timelocal: timelocal ? timelocal : null,
           pm1: pm1 ? pm1 : null,
           pm10: pm10 ? pm10 : null,
           pm25: pm25 ? pm25 : null,
+          date: formattedTime,
         });
         setLoading(false);
       });
@@ -207,8 +222,7 @@ function Harta() {
 
   function openTab(sensor) {
     if (sensor === selectedMenu) {
-      setMenuOpened(false);
-      setSelectedMenu("");
+      closeBtnFin();
     } else {
       setMenuOpened(true);
       if (!menuOpened) {
@@ -220,6 +234,11 @@ function Harta() {
   }
 
   function closeBtnFin() {
+    map.current.easeTo({
+      center: [25.045456, 45.268469],
+      zoom: 12,
+      duration: 1000,
+    });
     setCloseBtnOutEff(false);
     setMenuOpened(false);
     setSelectedMenu("");
@@ -266,35 +285,110 @@ function Harta() {
                 }}
               >
                 <button className={`outline-none`} onClick={() => closeTab()}>
-                  <i className="fa-solid fa-circle-xmark fa-lg"></i>
+                  {loading ? (
+                    <i class="fa-solid fa-arrow-rotate-right animate-spin mx-0.5"></i>
+                  ) : (
+                    <i className="fa-solid fa-circle-xmark fa-lg"></i>
+                  )}
                 </button>
               </div>
             ) : null}
           </div>
-          {menuOpened && (
+          {menuOpened && !loading && (
             <div
               className={`${menuInEff ? "animate-slideIn" : ""}${
                 closeBtnOutEff ? "animate-fadeOut" : ""
-              } w-96 h-max bg-slate-50 rounded-lg relative p-4`}
+              } w-96 h-max bg-slate-50 rounded-lg relative p-4 shadow-md`}
               onAnimationEnd={() => {
                 if (menuInEff) setMenuInEff(false);
               }}
             >
-              {loading ? (
-                <div>Loading...</div>
-              ) : (
-                <div className="flex flex-col items-start justify-start">
-                  <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      {menuData.name}
-                    </div>
-                    <div className="flex flex-row justify-end">
-                      {menuData.temperature}
-                      {getUnit("temperature")}
-                    </div>
+              <div
+                className={`flex flex-col items-start justify-start space-y-2`}
+              >
+                <div className="grid grid-cols-2 grid-rows-1 w-full">
+                  <div className="flex flex-row justify-start text-xl">
+                    {menuData.name}
+                  </div>
+                  <div className="flex flex-row justify-end items-center">
+                    {menuData.temperature}
+                    {getUnit("temperature")}
                   </div>
                 </div>
-              )}
+                <div className="flex flex-row justify-center items-center w-full space-x-2">
+                  <span className="mb-[2px]">Particule</span>
+                  <div className="w-full h-px bg-black opacity-25 rounded-full" />
+                </div>
+                {menuData.gas1 != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      NO2
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.gas1} {getUnit("gas1")}
+                    </div>
+                  </div>
+                )}
+                {menuData.pm1 != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      PM1.0
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.pm1} {getUnit("pm10")}
+                    </div>
+                  </div>
+                )}
+                {menuData.pm25 != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      PM2.5
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.pm25} {getUnit("pm25")}
+                    </div>
+                  </div>
+                )}
+                {menuData.pm10 != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      PM10
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.pm10} {getUnit("pm10")}
+                    </div>
+                  </div>
+                )}
+                <div className="flex flex-row justify-center items-center w-full space-x-2">
+                  <span className="mb-[2px]">Altele</span>
+                  <div className="w-full h-px bg-black opacity-25 rounded-full" />
+                </div>
+                {menuData.pressure != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      Presiune
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.pressure / 100} {getUnit("pressure")}
+                    </div>
+                  </div>
+                )}
+                {menuData.humidity != null && (
+                  <div className="grid grid-cols-2 grid-rows-1 w-full">
+                    <div className="flex flex-row justify-start text-xl">
+                      Umiditate
+                    </div>
+                    <div className="flex flex-row justify-end items-center">
+                      {menuData.humidity} {getUnit("humidity")}
+                    </div>
+                  </div>
+                )}
+                <div className="flex flex-row justify-start items-center w-full space-x-2 pt-1">
+                  <span className="mb-[2px] text-xs opacity-50">
+                    Ultima actualizare la {menuData.date}
+                  </span>
+                </div>
+              </div>
             </div>
           )}
         </div>
