@@ -156,8 +156,9 @@ app.post("/reg", async (req, res) => {
   }
 });
 
-app.get("/dummy", (req, res) => {
-  res.render("pages/login");
+app.get("/dummy", async(req, res) => {
+  const blogPosts = await Blog.find({});
+  res.render("pages/login", {blogPosts});
 });
 
 app.post(

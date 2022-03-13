@@ -10,9 +10,10 @@ const upload = multer({ storage });
 router.get("/", async (req, res) => {
   const colabPosts = await Colab.find({});
   res.render("colab/index", { colabPosts });
+  console.log(colabPosts)
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", async(req, res) => {
   res.render("colab/new");
 });
 

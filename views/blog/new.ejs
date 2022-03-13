@@ -105,19 +105,27 @@
                       <input type="text" id="title" name="blog[title]" required>
 
                       <label for="Author"><b>Autorul postarii</b></label>
-                      <input type="text" id="author" name="blog[author]" required>
+                      <input type="text" id="author" name="blog[author]" placeholder="WAGE Reporter / 'Daca este publicatie straina numele ei'" required>
 
                       <label for="Category"><b>Categoria</b></label>
-                      <input type="text" id="category" name="blog[category]" required>
+                      <input type="text" id="category" name="blog[category]" placeholder="Ex. Harta poluarii / Evenimente" required>
 
-                      <label for="Date"><b>Data</b></label>
-                      <input type="text" id="date" name="blog[date]" required maxlength="6">
+                      <div class="row">
+                        <div class="col">
+                            <label for="Day"><b>Ziua</b></label>
+                            <input type="text" id="day" name="blog[day]" placeholder="Ziua trebuie in cifre (Ex. 02)" required maxlength="2">
+                        </div>
+                        <div class="col">
+                            <label for="Month"><b>Luna</b></label>
+                            <input type="text" id="month" name="blog[month]" placeholder="Doar primele 3 litere ale lunii" required maxlength="3">
+                        </div>
+                      </div>
 
                       <label for="Preview"><b>Scurta descriere</b></label>
-                      <textarea  id="description" name="blog[preview]" required maxlength="150"></textarea>
+                      <textarea  id="description" name="blog[preview]" placeholder="Primul paragraf din articol/250 caractere" required maxlength="250"></textarea>
                   
                       <label for="description"><b>Descriere si imagini</b></label>
-                      <textarea  id="description" name="blog[description]" required></textarea>
+                      <textarea  id="description" name="blog[description]" placeholder="Tot articolul inclusiv paragraful pus la 'Scurta descriere'" required></textarea>
 
                       <div class="input-group mb-3">
                         <input type="file" class="form-control" name="image" id="image" multiple>
@@ -138,7 +146,7 @@
                 <div class="footer-column three columns" id="footer-widget-1">
                     <div id="text-5" class="widget widget_text greennature-item greennature-widget">
                         <div class="textwidget">
-                            <p><img src="../../images/brand1.png" style="width: 170px;" alt="" /></p>
+                            <p><img src="images/brand1.png" style="width: 170px;" alt="" /></p>
                             <p>W.A.G.E Team este o echipa formata din elevi si profesori ai Colegiului National "Dinicu Golescu",care are ca scop îmbunătățirea calității vieții în orașul Câmpulung</p>
                         </div>
                     </div>
@@ -157,35 +165,24 @@
                 </div>
                 <div class="footer-column three columns" id="footer-widget-3">
                     <div id="gdlr-recent-post-widget-5" class="widget widget_gdlr-recent-post-widget greennature-item greennature-widget">
-                        <h3 class="greennature-widget-title">Populare</h3>
+                        <h3 class="greennature-widget-title">Recente</h3>
                         <div class="clear"></div>
                         <div class="greennature-recent-post-widget">
-                            <div class="recent-post-widget">
-                                <div class="recent-post-widget-thumbnail">
-                                    <a href="#"><img src="upload/shutterstock_294481373-150x150.jpg" alt="" width="150" height="150" /></a>
-                                </div>
-                                <div class="recent-post-widget-content">
-                                    <div class="recent-post-widget-title"><a href="#">Sem Porta Mollis Parturi</a></div>
-                                    <div class="recent-post-widget-info">
-                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#">21 Mar 2014</a></div>
-                                        <div class="clear"></div>
+                            <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 2; i--) {%>
+                                <div class="recent-post-widget">
+                                    <div class="recent-post-widget-thumbnail">
+                                        <a href="/blog/<%= blogPosts[i]._id %> "><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
                                     </div>
-                                </div>
-                                <div class="clear"></div>
-                            </div>
-                            <div class="recent-post-widget">
-                                <div class="recent-post-widget-thumbnail">
-                                    <a href="#"><img src="upload/shutterstock_181393724-150x150.jpg" alt="" width="150" height="150" /></a>
-                                </div>
-                                <div class="recent-post-widget-content">
-                                    <div class="recent-post-widget-title"><a href="#">Nullam Lorem Mattis Purus</a></div>
-                                    <div class="recent-post-widget-info">
-                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#">21 Mar 2014</a></div>
-                                        <div class="clear"></div>
+                                    <div class="recent-post-widget-content">
+                                        <div class="recent-post-widget-title"><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].title %> </a></div>
+                                        <div class="recent-post-widget-info">
+                                            <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %>  ">21 Mar 2014</a></div>
+                                            <div class="clear"></div>
+                                        </div>
                                     </div>
+                                    <div class="clear"></div>
                                 </div>
-                                <div class="clear"></div>
-                            </div>
+                                <% } %> 
                             <div class="clear"></div>
                         </div>
                     </div>
@@ -195,24 +192,11 @@
                         <h3 class="greennature-widget-title">Galerie</h3>
                         <div class="clear"></div>
                         <div class="greennature-recent-port2-widget">
+                            <% for (let blog of blogPosts){ %>
                             <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
+                                <a href="/blog/<%= blog._id %> "><img src="<%= blog.image[0].url %>" alt="" width="150" height="150" /></a>
                             </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_124871620-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_281995004-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
-                            <div class="recent-port-widget-thumbnail">
-                                <a href="#"><img src="upload/shutterstock_256181956-150x150.jpg" alt="" width="150" height="150" /></a>
-                            </div>
+                            <% } %> 
                             <div class="clear"></div>
                         </div>
                     </div>
