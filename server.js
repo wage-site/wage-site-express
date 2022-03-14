@@ -50,6 +50,7 @@ const scriptSrcUrls = [
   "https://ajax.googleapis.com/ajax",
   "https://unpkg.com/",
   "https://cdn.tailwindcss.com",
+  "http://player.vimeo.com/"
 ];
 const styleSrcUrls = [
   "https://kit-free.fontawesome.com/",
@@ -62,6 +63,7 @@ const styleSrcUrls = [
   "https://res.cloudinary.com/dwshqh6op/",
   "https://cdnjs.cloudflare.com/",
   "https://cdn.tailwindcss.com",
+  "http://player.vimeo.com/"
 ];
 const connectSrcUrls = [
   "https://*.tiles.mapbox.com",
@@ -69,11 +71,13 @@ const connectSrcUrls = [
   "https://events.mapbox.com",
   "https://res.cloudinary.com/dwshqh6op/",
   "https://data.uradmonitor.com/",
+  "http://player.vimeo.com/"
 ];
 const fontSrcUrls = [
   "https://fonts.googleapis.com/",
   "https://fonts.gstatic.com/",
   "https://cdnjs.cloudflare.com/",
+  "http://player.vimeo.com/"
 ];
 
 app.use(
@@ -159,6 +163,11 @@ app.post("/reg", async (req, res) => {
 app.get("/dummy", async(req, res) => {
   const blogPosts = await Blog.find({});
   res.render("pages/login", {blogPosts});
+});
+
+app.get("/timeline", async(req, res) => {
+  const blogPosts = await Blog.find({});
+  res.render("pages/timeline");
 });
 
 app.post(

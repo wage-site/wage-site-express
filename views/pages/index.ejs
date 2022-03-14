@@ -36,7 +36,7 @@
 </head>
 
 <body data-rsssl=1 class="home page-template-default page page-id-5680 _masterslider _msp_version_3.2.7 woocommerce-no-js">
-    <div class="body-wrapper  float-menu" data-home="https://demo.goodlayers.com/greennature/">
+    <div class="body-wrapper  float-menu" >
         <header class="greennature-header-wrapper header-style-5-wrapper greennature-header-with-top-bar">
             <div id="greennature-header-substitute"></div>
             <div class="greennature-header-inner header-inner-header-style-5">
@@ -45,7 +45,7 @@
                     <!-- logo -->
                     <div class="greennature-logo">
                         <div class="greennature-logo-inner">
-                            <a href="index-2.html">
+                            <a href="/">
                                 <img src="images/brand1.png" alt="" /> </a>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="greennature-navigation-wrapper">
                         <nav class="greennature-navigation" id="greennature-main-navigation">
                             <ul id="menu-main-menu-1" class="sf-menu greennature-main-menu">
-                                <li class="menu-item menu-item-home current-menu-item greennature-normal-menu"><a href="index"><i class="fa fa-home"></i>Acasa</a></li>
+                                <li class="menu-item menu-item-home current-menu-item greennature-normal-menu"><a href="/"><i class="fa fa-home"></i>Acasa</a></li>
                                 <li class="menu-item menu-item greennature-normal-menu"><a href="#content-section-4" class="sf-with-ul-pre"><i class="fa fa-file-text-o"></i>Proiecte</a>
                                 </li>
                                 <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="colab" class="sf-with-ul-pre"><i class="fa fa-globe"></i>Colaboratori</a>
@@ -91,7 +91,7 @@
                                         <div class="ms-slide" data-delay="7" data-fill-mode="fill">
                                             <img src="plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="upload/slider-1.jpg" />
 
-                                            <a href="#" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="208" data-origin="ml" data-position="normal">Ce pot face?</a>
+                                            <a href="#section6" target="_self" class="ms-layer ms-btn ms-btn-round ms-btn-n msp-preset-btn-159" data-effect="t(true,n,n,-500,n,n,n,n,n,n,n,n,n,n,n)" data-duration="400" data-delay="987" data-ease="easeOutQuint" data-type="button" data-offset-x="1" data-offset-y="208" data-origin="ml" data-position="normal">Ce pot face?</a>
 
                                             <div class="ms-layer  msp-cn-1-3" style="" data-effect="t(true,150,n,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="437" data-delay="625" data-ease="easeOutQuint" data-offset-x="0" data-offset-y="105" data-origin="ml" data-position="normal">
                                                 Pamantul</div>
@@ -267,7 +267,7 @@
                         </div>
                         <div class="clear"></div>
                     </section>
-                    <section id="content-section-6">
+                    <section id="section6">
                         <div class="greennature-color-wrapper   " style="background-color: #ffffff; ">
                             <div class="container">
                                 <div class="six columns">
@@ -294,8 +294,8 @@
                                                                         </div>
         
                                                                         <div class="greennature-blog-date-wrapper">
-                                                                            <div class="greennature-blog-day">11</div>
-                                                                            <div class="greennature-blog-month">Dec</div>
+                                                                            <div class="greennature-blog-day"><%= blogPosts[i].day %> </div>
+                                                                            <div class="greennature-blog-month"><%= blogPosts[i].month %> </div>
                                                                         </div>
         
                                                                         <header class="post-header">
@@ -389,7 +389,7 @@
                                 <div class="recent-post-widget-content">
                                     <div class="recent-post-widget-title"><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].title %> </a></div>
                                     <div class="recent-post-widget-info">
-                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %>  ">21 Mar 2014</a></div>
+                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %>  "><%= blogPosts[i].day %> <%= blogPosts[i].month %> </a></div>
                                         <div class="clear"></div>
                                     </div>
                                 </div>
