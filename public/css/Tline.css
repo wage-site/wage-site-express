@@ -104,3 +104,12 @@ html {
     background-color: #808080;
   }
 }
+
+.tWidth{
+  width: 50%;
+}
+@media(max-width: 767.98px){
+  .tWidth{
+    width: 100%;
+  }
+}
