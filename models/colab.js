@@ -14,4 +14,4 @@ const colabSchema = new Schema({
   link: String,
 });
 
-module.exports = mongoose.model("Colab", colabSchema);
+module.exports = mongoose.model('Colab', colabSchema);

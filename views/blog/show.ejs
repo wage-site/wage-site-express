@@ -57,9 +57,9 @@
                         <nav class="greennature-navigation" id="greennature-main-navigation">
                             <ul id="menu-main-menu-1" class="sf-menu greennature-main-menu">
                                 <li class="menu-item menu-item-home  greennature-normal-menu"><a href="/"><i class="fa fa-home"></i>Acasa</a></li>
-                                <li class="menu-item menu-item greennature-normal-menu"><a href="#" class="sf-with-ul-pre"><i class="fa fa-file-text-o"></i>Proiecte</a>
+                                <li class="menu-item menu-item greennature-normal-menu"><a href="/#section6" class="sf-with-ul-pre"><i class="fa fa-file-text-o"></i>Proiecte</a>
                                 </li>
-                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="/gallery" class="sf-with-ul-pre"><i class="fa fa-globe"></i>Galerie</a>
+                                <li class="menu-item menu-item-has-childrenmenu-item menu-item-has-children greennature-mega-menu"><a href="/colab" class="sf-with-ul-pre"><i class="fa fa-globe"></i>Colaboratori</a>
                                 </li>
                                 <li class="menu-item menu-item-has-childrenmenu-item current-menu-item menu-item-has-children greennature-normal-menu"><a href="/blog" class="sf-with-ul-pre">Blog</a>
                                 </li>
@@ -208,47 +208,26 @@
                                     
                                 </div>
                                 <div id="gdlr-recent-portfolio-widget-2" class="widget widget_gdlr-recent-portfolio-widget greennature-item greennature-widget">
-                                    <h3 class="greennature-widget-title">Populare</h3>
-                                    <div class="clear"></div>
-<!--                                     <div class="textwidget">Nu exista postari populare.</div> -->
                                     <div class="greennature-recent-port-widget"> 
-                                        <div class="recent-post-widget">
-                                            <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_161515241-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div class="recent-post-widget-content">
-                                                <div class="recent-post-widget-title"><a href="#">Wind Energy</a></div>
-                                                <div class="recent-post-widget-info">
-                                                    <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div class="clear"></div>
+                                        <h3 class="greennature-widget-title">Articole recente</h3>
+                                        <div class="clear"></div>
+                                       <!--  <div class="textwidget">Nu exista postari populare.</div> -->
+                                        <div class="greennature-recent-port-widget"> 
+                                            <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 3; i--) {%>
+                                            <div class="recent-post-widget">
+                                                <div class="recent-post-widget-thumbnail">
+                                                    <a href="/blog/<%= blogPosts[i]._id %>"><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
                                                 </div>
-                                            </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <div class="recent-post-widget">
-                                            <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_133689230-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div class="recent-post-widget-content">
-                                                <div class="recent-post-widget-title"><a href="#">Elephant Sanctuary</a></div>
-                                                <div class="recent-post-widget-info">
-                                                    <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div class="clear"></div>
+                                                <div class="recent-post-widget-content">
+                                                    <div class="recent-post-widget-title"><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].title %> </a></div>
+                                                    <div class="recent-post-widget-info">
+                                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].day %> <%= blogPosts[i].month %> </a></div>
+                                                        <div class="clear"></div>
+                                                    </div>
                                                 </div>
+                                                <div class="clear"></div>
                                             </div>
-                                            <div class="clear"></div>
-                                        </div>
-                                        <div class="recent-post-widget">
-                                            <div class="recent-post-widget-thumbnail">
-                                                <a href="#"><img src="upload/shutterstock_53600221-150x150.jpg" alt="" width="150" height="150" /></a>
-                                            </div>
-                                            <div class="recent-post-widget-content">
-                                                <div class="recent-post-widget-title"><a href="#">Conservation Volunteer</a></div>
-                                                <div class="recent-post-widget-info">
-                                                    <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="#">04 Dec 2013</a></div>
-                                                    <div class="clear"></div>
-                                                </div>
-                                            </div>
+                                            <% } %> 
                                             <div class="clear"></div>
                                         </div>
                                         <div class="clear"></div>
@@ -268,6 +247,70 @@
         </div>
         <!-- content wrapper -->
 
+        <footer class="footer-wrapper">
+            <div class="footer-container container">
+                <div class="footer-column three columns" id="footer-widget-1">
+                    <div id="text-5" class="widget widget_text greennature-item greennature-widget">
+                        <div class="textwidget">
+                            <p><img src="../../images/brand1.png" style="width: 170px;" alt="" /></p>
+                            <p>W.A.G.E Team este o echipa formata din elevi si profesori ai Colegiului National "Dinicu Golescu", care are ca scop îmbunătățirea calității vieții în orașul Câmpulung</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column three columns" id="footer-widget-2">
+                    <div id="text-9" class="widget widget_text greennature-item greennature-widget">
+                        <h3 class="greennature-widget-title">Social Media</h3>
+                        <div class="clear"></div>
+                        <div class="textwidget"><span class="clear"></span><span class="greennature-space" style="margin-top: -6px; display: block;"></span><i class="fab fa-instagram"></i> @wage_team_cndg
+
+                            <span class="clear"></span><span class="greennature-space" style="margin-top: 10px; display: block;"></span>
+
+                            <i class="fab fa-facebook"></i> WAGE Team
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column three columns" id="footer-widget-3">
+                    <div id="gdlr-recent-post-widget-5" class="widget widget_gdlr-recent-post-widget greennature-item greennature-widget">
+                        <h3 class="greennature-widget-title">Recente</h3>
+                        <div class="clear"></div>
+                        <div class="greennature-recent-post-widget">
+                            <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 2; i--) {%>
+                            <div class="recent-post-widget">
+                                <div class="recent-post-widget-thumbnail">
+                                    <a href="/blog/<%= blogPosts[i]._id %> "><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
+                                </div>
+                                <div class="recent-post-widget-content">
+                                    <div class="recent-post-widget-title"><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].title %> </a></div>
+                                    <div class="recent-post-widget-info">
+                                        <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %>  "><%= blogPosts[i].day %> <%= blogPosts[i].month %> </a></div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <% } %> 
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-column three columns" id="footer-widget-4">
+                    <div id="gdlr-recent-portfolio2-widget-6" class="widget widget_gdlr-recent-portfolio2-widget greennature-item greennature-widget">
+                        <h3 class="greennature-widget-title">Galerie</h3>
+                        <div class="clear"></div>
+                        
+                         <div class="greennature-recent-port2-widget">
+                         <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 4; i--) {%>
+                            <div class="recent-port-widget-thumbnail">
+                                <a href="/blog/<%= blogPosts[i]._id %>"><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
+                            </div>
+                            <% } %> 
+                            <div class="clear"></div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </footer>
     </div>
     <!-- body-wrapper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

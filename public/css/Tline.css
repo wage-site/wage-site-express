@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap");
-html {
+html,body {
   font-family: "Montserrat";
+  background-color: #FBF8F1;
 }
 .container1 {
   min-height: 100vh;
@@ -112,4 +113,8 @@ html {
   .tWidth{
     width: 100%;
   }
+}
+
+.carousel{
+  background-color: #e4e1d7;
 }

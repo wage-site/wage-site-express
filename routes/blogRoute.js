@@ -27,7 +27,7 @@ router.post('/', isLoggedIn , upload.array('image'), async(req,res) =>{
 router.get('/:id', async(req,res) =>{
 	const blogPosts = await Blog.find({});
 	const blogID = await Blog.findById(req.params.id)
-	res.render('blog/show', {blogID});
+	res.render('blog/show', {blogID , blogPosts});
 });
 
 router.get('/:id/edit', isLoggedIn,async(req,res) =>{
