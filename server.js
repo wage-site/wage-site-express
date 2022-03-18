@@ -167,7 +167,7 @@ app.get("/dummy", async(req, res) => {
 
 app.get("/timeline", async(req, res) => {
   const blogPosts = await Blog.find({});
-  res.render("pages/timeline");
+  res.render("pages/timeline",{blogPosts});
 });
 
 app.post(

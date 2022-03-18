@@ -126,40 +126,104 @@
                     </div>
                 </div>
 
-                <div style=" position: absolute;" class="py-3">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                              <div class="row">
-                                  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                                    <h1 class="border-bottom border-dark mx-5 my-1 pb-1">Februarie 2022</h1>
-                                    <p class="mx-5">Am lansat un nou proiect de mediu, intitulat „Fără poluare! Refolosește!” in cadrul unui eveniment deschis din incinta Colegiului National "Dinicu Golescu", pornind de la o întrebare: ce se întâmplă cu pâinea care a rămas neconsumată?</p>
-                                  </div>
-                                  <img src="upload/primaria.jpg" class="d-block tWidth  float-end" alt="...">
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <div class="row">
+                              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <h1 class="border-bottom border-dark mx-5 my-1 pb-1">Februarie 2022</h1>
+                                <p class="mx-5">Am lansat un nou proiect de mediu, intitulat „Fără poluare! Refolosește!” in cadrul unui eveniment deschis din incinta Colegiului National "Dinicu Golescu", pornind de la o întrebare: ce se întâmplă cu pâinea care a rămas neconsumată?</p>
                               </div>
+                              <img src="upload/primaria.jpg" class="d-block tWidth  float-end" alt="...">
                           </div>
-                          
-                        </div>
-                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Previous</span>
-                        </button>
-                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Next</span>
-                        </button>
                       </div>
-                </div>
-
-                </div>
+                      
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
             </div>
+
+            </div>
+            
         </div>
 
+
+        <footer class="footer-wrapper">
+          <div class="footer-container container">
+              <div class="footer-column three columns" id="footer-widget-1">
+                  <div id="text-5" class="widget widget_text greennature-item greennature-widget">
+                      <div class="textwidget">
+                          <p><img src="images/brand1.png" style="width: 170px;" alt="" /></p>
+                          <p>W.A.G.E Team este o echipa formata din elevi si profesori ai Colegiului National "Dinicu Golescu", care are ca scop îmbunătățirea calității vieții în orașul Câmpulung</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-column three columns" id="footer-widget-2">
+                  <div id="text-9" class="widget widget_text greennature-item greennature-widget">
+                      <h3 class="greennature-widget-title">Social Media</h3>
+                      <div class="clear"></div>
+                      <div class="textwidget"><span class="clear"></span><span class="greennature-space" style="margin-top: -6px; display: block;"></span><i class="fab fa-instagram"></i> @wage_team_cndg
+
+                          <span class="clear"></span><span class="greennature-space" style="margin-top: 10px; display: block;"></span>
+
+                          <i class="fab fa-facebook"></i> WAGE Team
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-column three columns" id="footer-widget-3">
+                  <div id="gdlr-recent-post-widget-5" class="widget widget_gdlr-recent-post-widget greennature-item greennature-widget">
+                      <h3 class="greennature-widget-title">Recente</h3>
+                      <div class="clear"></div>
+                      <div class="greennature-recent-post-widget">
+                          <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 2; i--) {%>
+                          <div class="recent-post-widget">
+                              <div class="recent-post-widget-thumbnail">
+                                  <a href="/blog/<%= blogPosts[i]._id %> "><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
+                              </div>
+                              <div class="recent-post-widget-content">
+                                  <div class="recent-post-widget-title"><a href="/blog/<%= blogPosts[i]._id %> "><%= blogPosts[i].title %> </a></div>
+                                  <div class="recent-post-widget-info">
+                                      <div class="blog-info blog-date greennature-skin-info"><i class="fa fa-clock-o"></i><a href="/blog/<%= blogPosts[i]._id %>  "><%= blogPosts[i].day %> <%= blogPosts[i].month %> </a></div>
+                                      <div class="clear"></div>
+                                  </div>
+                              </div>
+                              <div class="clear"></div>
+                          </div>
+                          <% } %> 
+                          <div class="clear"></div>
+                      </div>
+                  </div>
+              </div>
+              <div class="footer-column three columns" id="footer-widget-4">
+                  <div id="gdlr-recent-portfolio2-widget-6" class="widget widget_gdlr-recent-portfolio2-widget greennature-item greennature-widget">
+                      <h3 class="greennature-widget-title">Galerie</h3>
+                      <div class="clear"></div>
+                      
+                       <div class="greennature-recent-port2-widget">
+                       <% for(let i=blogPosts.length - 1; i >= blogPosts.length - 4; i--) {%>
+                          <div class="recent-port-widget-thumbnail">
+                              <a href="/blog/<%= blogPosts[i]._id %>"><img src="<%= blogPosts[i].image[0].url %>" alt="" width="150" height="150" /></a>
+                          </div>
+                          <% } %> 
+                          <div class="clear"></div>
+                      </div> 
+                  </div>
+              </div>
+              <div class="clear"></div>
+          </div>
+      </footer>
     <!-- body-wrapper -->
 
 
