@@ -16,7 +16,7 @@
     display: flex;
 }
 
-body {font-family: Arial, Helvetica, sans-serif;}
+body {font-family: Arial, Helvetica, sans-serif;background-color: white;}
 form {border: 3px solid #f1f1f1;}
 
 input[type=text],textarea,input[type=password],input[type=email] {
@@ -75,5 +75,21 @@ span.psw {
   }
   .cancelbtn {
      width: 100%;
+  }
+}
+@media screen and (max-width: 765px) {
+  .greennature-blog-full .greennature-blog-date-wrapper{
+    float: none;
+    display: flex;
+    margin-bottom: 10px;
+  }
+  .greennature-blog-full .greennature-blog-month{
+    display: flex;
+    margin-left: 10px;
+    align-items: end;
+  }
+  .with-sidebar-container .container,body{
+    max-width: none;
+    padding: 0;
   }
 }

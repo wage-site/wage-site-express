@@ -12,8 +12,9 @@ router.get('/', async(req, res) => {
 	res.render('blog/index', {blogPosts});
 });
 
-router.get('/new',isLoggedIn, (req,res) =>{
-	res.render('blog/new'); 
+router.get('/new', async(req,res) =>{
+	const blogPosts = await Blog.find({});
+	res.render('blog/new'), {blogPosts}; 
 });
 
 router.post('/', isLoggedIn , upload.array('image'), async(req,res) =>{
@@ -24,16 +25,19 @@ router.post('/', isLoggedIn , upload.array('image'), async(req,res) =>{
 });
 
 router.get('/:id', async(req,res) =>{
+	const blogPosts = await Blog.find({});
 	const blogID = await Blog.findById(req.params.id)
-	res.render('blog/show', {blogID});
+	res.render('blog/show', {blogID , blogPosts});
 });
 
 router.get('/:id/edit', isLoggedIn,async(req,res) =>{
+	const blogPosts = await Blog.find({});
 	const blogID = await Blog.findById(req.params.id)
 	res.render('blog/edit', {blogID});
 });
 
 router.put('/:id',isLoggedIn,async(req,res) =>{
+
 	const {id} = req.params;
 	const blogEdited = await Blog.findByIdAndUpdate(id,{...req.body.blog});
 	res.redirect(`/blog/${blogEdited._id}`)

@@ -1,4 +1,5 @@
 const Colab = require("../models/colab");
+const Blog = require('../models/blog');
 const express = require("express");
 const router = express.Router();
 const methodOverride = require("method-override");
@@ -8,11 +9,13 @@ const { storage } = require("../cloudinary/cldindex");
 const upload = multer({ storage });
 
 router.get("/", async (req, res) => {
+  const blogPosts = await Blog.find({});
   const colabPosts = await Colab.find({});
-  res.render("colab/index", { colabPosts });
+  res.render("colab/index", { colabPosts , blogPosts});
+  console.log(colabPosts)
 });
 
-router.get("/new", (req, res) => {
+router.get("/new", async(req, res) => {
   res.render("colab/new");
 });
 

@@ -11,6 +11,7 @@
   "author": "Arnaud Ferrand",
   "license": "MIT",
   "dependencies": {
+    "@splidejs/splide": "^3.6.12",
     "autoprefixer": "^10.4.2",
     "chart.js": "^2.9.4",
     "cloudinary": "^1.28.1",
