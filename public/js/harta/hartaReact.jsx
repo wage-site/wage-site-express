@@ -73,7 +73,7 @@ function Harta() {
 
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [mapHeight, setMapHeight] = useState(720);
+  const [mapHeight, setMapHeight] = useState(window.innerHeight);
 
   const [closeBtnInEff, setCloseBtnInEff] = useState(false);
   const [closeBtnOutEff, setCloseBtnOutEff] = useState(false);
@@ -81,6 +81,10 @@ function Harta() {
 
   const [menuOpened, setMenuOpened] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState("");
+
+  const [graphOpened, setGraphOpened] = useState(false);
+  const [graphInEff, setGraphInEff] = useState(false);
+  const [graphOutEff, setGraphOutEff] = useState(false);
 
   const [sensors, setSensors] = useState([]);
 
@@ -143,7 +147,7 @@ function Harta() {
   }, [sensors]);
 
   useEffect(() => {
-    setMapHeight(size.height);
+    setMapHeight(window.innerHeight);
   }, [size]);
 
   useEffect(() => {
@@ -244,8 +248,22 @@ function Harta() {
     setSelectedMenu("");
   }
 
+  function closeGraph() {
+    setGraphOutEff(false);
+    setGraphOpened(false);
+  }
+
   function closeTab() {
     setCloseBtnOutEff(true);
+  }
+
+  function graphHandle() {
+    if (graphOpened) {
+      setGraphOutEff(true);
+    } else {
+      setGraphInEff(true);
+      setGraphOpened(true);
+    }
   }
 
   return (
@@ -286,7 +304,7 @@ function Harta() {
               >
                 <button className={`outline-none`} onClick={() => closeTab()}>
                   {loading ? (
-                    <i class="fa-solid fa-arrow-rotate-right animate-spin mx-0.5"></i>
+                    <i className="fa-solid fa-arrow-rotate-right animate-spin mx-0.5"></i>
                   ) : (
                     <i className="fa-solid fa-circle-xmark fa-lg"></i>
                   )}
@@ -296,99 +314,140 @@ function Harta() {
           </div>
           {menuOpened && !loading && (
             <div
-              className={`${menuInEff ? "animate-slideIn" : ""}${
-                closeBtnOutEff ? "animate-fadeOut" : ""
-              } w-96 h-max bg-slate-50 rounded-lg relative p-4 shadow-md`}
+              className={`flex flex-row space-x-4 ${
+                menuInEff ? "animate-slideIn" : ""
+              }${closeBtnOutEff ? "animate-fadeOut" : ""}`}
               onAnimationEnd={() => {
                 if (menuInEff) setMenuInEff(false);
               }}
             >
               <div
-                className={`flex flex-col items-start justify-start space-y-2`}
+                className={`w-96 h-max bg-slate-50 rounded-lg relative p-4 shadow-md`}
               >
-                <div className="grid grid-cols-2 grid-rows-1 w-full">
-                  <div className="flex flex-row justify-start text-xl">
-                    {menuData.name}
-                  </div>
-                  <div className="flex flex-row justify-end items-center">
-                    {menuData.temperature}
-                    {getUnit("temperature")}
-                  </div>
-                </div>
-                <div className="flex flex-row justify-center items-center w-full space-x-2">
-                  <span className="mb-[2px]">Particule</span>
-                  <div className="w-full h-px bg-black opacity-25 rounded-full" />
-                </div>
-                {menuData.gas1 != null && (
+                <div
+                  className={`flex flex-col items-start justify-start space-y-2`}
+                >
                   <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      NO2
+                    <div className="flex flex-row justify-start items-center text-xl">
+                      {menuData.name}
                     </div>
                     <div className="flex flex-row justify-end items-center">
-                      {menuData.gas1} {getUnit("gas1")}
+                      {menuData.temperature}
+                      {getUnit("temperature")}
                     </div>
                   </div>
-                )}
-                {menuData.pm1 != null && (
+                  <div className="flex flex-row justify-center items-center w-full space-x-2">
+                    <span className="mb-[2px]">Particule</span>
+                    <div className="w-full h-px bg-black opacity-25 rounded-full" />
+                  </div>
+                  {menuData.gas1 != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        NO2
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.gas1} {getUnit("gas1")}
+                      </div>
+                    </div>
+                  )}
+                  {menuData.pm1 != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        PM1.0
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.pm1} {getUnit("pm10")}
+                      </div>
+                    </div>
+                  )}
+                  {menuData.pm25 != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        PM2.5
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.pm25} {getUnit("pm25")}
+                      </div>
+                    </div>
+                  )}
+                  {menuData.pm10 != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        PM10
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.pm10} {getUnit("pm10")}
+                      </div>
+                    </div>
+                  )}
+                  <div className="flex flex-row justify-center items-center w-full space-x-2">
+                    <span className="mb-[2px]">Altele</span>
+                    <div className="w-full h-px bg-black opacity-25 rounded-full" />
+                  </div>
+                  {menuData.pressure != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        Presiune
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.pressure / 100} {getUnit("pressure")}
+                      </div>
+                    </div>
+                  )}
+                  {menuData.humidity != null && (
+                    <div className="grid grid-cols-2 grid-rows-1 w-full">
+                      <div className="flex flex-row justify-start text-xl">
+                        Umiditate
+                      </div>
+                      <div className="flex flex-row justify-end items-center">
+                        {menuData.humidity} {getUnit("humidity")}
+                      </div>
+                    </div>
+                  )}
                   <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      PM1.0
+                    <div className="flex flex-row justify-start items-center text-xl">
+                      <span className="mb-[2px] text-xs opacity-50">
+                        Ultima actualizare la {menuData.date}
+                      </span>
                     </div>
                     <div className="flex flex-row justify-end items-center">
-                      {menuData.pm1} {getUnit("pm10")}
+                      <button
+                        className={`outline-none`}
+                        onClick={() => graphHandle()}
+                      >
+                        {loading ? (
+                          <i className="fa-solid fa-arrow-rotate-right animate-spin mx-0.5"></i>
+                        ) : (
+                          <i
+                            className={`fa-solid fa-circle-chevron-right transition-all duration-500 ${
+                              graphOpened && "-rotate-180"
+                            }`}
+                          ></i>
+                        )}
+                      </button>
                     </div>
                   </div>
-                )}
-                {menuData.pm25 != null && (
-                  <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      PM2.5
-                    </div>
-                    <div className="flex flex-row justify-end items-center">
-                      {menuData.pm25} {getUnit("pm25")}
-                    </div>
-                  </div>
-                )}
-                {menuData.pm10 != null && (
-                  <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      PM10
-                    </div>
-                    <div className="flex flex-row justify-end items-center">
-                      {menuData.pm10} {getUnit("pm10")}
-                    </div>
-                  </div>
-                )}
-                <div className="flex flex-row justify-center items-center w-full space-x-2">
-                  <span className="mb-[2px]">Altele</span>
-                  <div className="w-full h-px bg-black opacity-25 rounded-full" />
-                </div>
-                {menuData.pressure != null && (
-                  <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      Presiune
-                    </div>
-                    <div className="flex flex-row justify-end items-center">
-                      {menuData.pressure / 100} {getUnit("pressure")}
-                    </div>
-                  </div>
-                )}
-                {menuData.humidity != null && (
-                  <div className="grid grid-cols-2 grid-rows-1 w-full">
-                    <div className="flex flex-row justify-start text-xl">
-                      Umiditate
-                    </div>
-                    <div className="flex flex-row justify-end items-center">
-                      {menuData.humidity} {getUnit("humidity")}
-                    </div>
-                  </div>
-                )}
-                <div className="flex flex-row justify-start items-center w-full space-x-2 pt-1">
-                  <span className="mb-[2px] text-xs opacity-50">
-                    Ultima actualizare la {menuData.date}
-                  </span>
                 </div>
               </div>
+              {graphOpened && (
+                <div
+                  className={`${graphInEff && "animate-slideIn"} ${
+                    graphOutEff && "animate-slideOut"
+                  } w-96 h-max bg-slate-50 rounded-lg relative p-4 shadow-md`}
+                  onAnimationEnd={() => {
+                    if (graphInEff) setGraphInEff(false);
+                    else if (graphOutEff) {
+                      closeGraph();
+                    }
+                  }}
+                >
+                  <div
+                    className={`flex flex-col items-start justify-start space-y-2`}
+                  >
+                    <div className="text-xl"></div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
